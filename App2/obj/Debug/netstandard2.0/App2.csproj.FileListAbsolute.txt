@@ -12,3 +12,4 @@ C:\Users\Apxb\Documents\C#\App2\App2\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Apxb\Documents\C#\App2\App2\obj\Debug\netstandard2.0\App2.dll
 C:\Users\Apxb\Documents\C#\App2\App2\obj\Debug\netstandard2.0\ref\App2.dll
 C:\Users\Apxb\Documents\C#\App2\App2\obj\Debug\netstandard2.0\App2.pdb
+C:\Users\Apxb\Documents\C#\App2\App2\obj\Debug\netstandard2.0\DetailsPage.xaml.g.cs

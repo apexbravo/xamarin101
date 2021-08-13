@@ -9,8 +9,13 @@ namespace App2.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
+
+        public Command SelectedNoteChangedCommand { get; }
+        string selectedNote;
+
         public MainPageViewModel()
         {
+            
             EraseCommand = new Command(() =>
                 {
                     TheNote = string.Empty;
@@ -21,6 +26,16 @@ namespace App2.ViewModels
                 AllNotes.Add(TheNote);
                 TheNote = string.Empty;
             });
+
+            SelectedNoteChangedCommand = new Command(async() =>
+            {
+                var detailVM = new DetailPageViewModel(selectedNote);
+                var detailsPage = new DetailsPage();
+
+                detailsPage.BindingContext = detailVM;
+                 await Application.Current.MainPage.Navigation.PushModalAsync(detailsPage);
+            });
+
         }
         ObservableCollection<string> allNotes;
         public ObservableCollection<string> AllNotes{
