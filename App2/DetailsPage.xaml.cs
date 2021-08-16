@@ -12,9 +12,10 @@ namespace App2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsPage : ContentPage
     {
-        public DetailsPage()
+        public DetailsPage(ViewModels.DetailPageViewModel detailVM)
         {
             InitializeComponent();
+            BindingContext = detailVM;
         }
     }
 }

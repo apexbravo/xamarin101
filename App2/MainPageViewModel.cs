@@ -13,8 +13,20 @@ namespace App2.ViewModels
         public Command SelectedNoteChangedCommand { get; }
         string selectedNote;
 
+
+        public string SelectedNote
+        {
+            get => selectedNote;
+            set
+            {
+                selectedNote = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedNote)));
+            }
+        }
+
         public MainPageViewModel()
         {
+           
             
             EraseCommand = new Command(() =>
                 {
@@ -30,10 +42,10 @@ namespace App2.ViewModels
             SelectedNoteChangedCommand = new Command(async() =>
             {
                 var detailVM = new DetailPageViewModel(selectedNote);
-                var detailsPage = new DetailsPage();
+                
 
-                detailsPage.BindingContext = detailVM;
-                 await Application.Current.MainPage.Navigation.PushModalAsync(detailsPage);
+              
+                 await Application.Current.MainPage.Navigation.PushModalAsync(new DetailsPage(detailVM));
             });
 
         }

@@ -11,16 +11,25 @@ namespace App2.ViewModels
      
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public DetailPageViewModel(String note)
+        public DetailPageViewModel(string note)
         {
             DismissPageCommand = new Command(async () =>
             {
                 await Application.Current.MainPage.Navigation.PopModalAsync();
             });
+            NoteText = note;
         }
 
-        string noteText;
-        public string NoteText;
+        string noteText ;
+        public string NoteText
+        {
+            get => noteText;
+            set
+            {
+                noteText = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NoteText)));
+            }
+        }
         public Command DismissPageCommand { get; }
     }
 }
