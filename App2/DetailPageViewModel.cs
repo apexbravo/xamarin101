@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace App2.ViewModels
 {
-    public class DetailPageViewModel : INotifyPropertyChanged
+    public class DetailPageViewModel : ContentPage, INotifyPropertyChanged
     {
      
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,5 +31,10 @@ namespace App2.ViewModels
             }
         }
         public Command DismissPageCommand { get; }
+
+        async void OnNavigateButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }
